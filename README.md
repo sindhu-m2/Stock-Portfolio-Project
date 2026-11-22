@@ -67,7 +67,7 @@ https://stock-portfolio-project-7os4.onrender.com
 
 ## 👩‍💻 Developed By
 
-Created as part of the CodeAlpha Python Programming Internship.
+**Boddu Sudarshana Laxmi Sindhu**
 
 ## ⚠️ Disclaimer
 
