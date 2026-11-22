@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Portfolio Tracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="brand">
+            <span class="brand-icon">📈</span>
+            <h2>Stock<span>Vault</span></h2>
+        </div>
+
+        <div class="nav-right">
+            <span class="market-status">● MARKET TRACKER</span>
+            <button onclick="refreshDashboard()">↻ Refresh</button>
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="welcome">
+
+            <div>
+                <p class="eyebrow">INVESTMENT OVERVIEW</p>
+                <h1>Your Portfolio</h1>
+                <p>Track your stocks and monitor your investments.</p>
+            </div>
+
+            <div class="updated">
+                Last updated: <span id="updatedAt">--</span>
+            </div>
+
+        </section>
+
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Total Invested</p>
+                <h2 id="totalInvested">$0.00</h2>
+                <span>Portfolio cost basis</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Current Value</p>
+                <h2 id="currentValue">$0.00</h2>
+                <span>Based on latest available prices</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Total Profit / Loss</p>
+                <h2 id="totalProfit">$0.00</h2>
+                <span id="profitPercentage">0.00%</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Stocks Owned</p>
+                <h2 id="stockCount">0</h2>
+                <span>Different companies</span>
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">MARKET WATCH</p>
+                    <h2>Explore Stocks</h2>
+                </div>
+            </div>
+
+            <div id="stockGrid" class="stock-grid">
+                Loading stocks...
+            </div>
+
+        </section>
+
+
+        <section class="portfolio-layout">
+
+            <div class="portfolio-panel">
+
+                <p class="eyebrow">YOUR INVESTMENTS</p>
+                <h2>My Portfolio</h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Stock</th>
+                                <th>Shares</th>
+                                <th>Avg. Cost</th>
+                                <th>Market Price</th>
+                                <th>Current Value</th>
+                                <th>Profit / Loss</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="portfolioBody">
+                            <tr>
+                                <td colspan="6">
+                                    Your portfolio is empty.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-panel">
+
+                <p class="eyebrow">ASSET ALLOCATION</p>
+                <h2>Portfolio Distribution</h2>
+
+                <canvas id="portfolioChart"></canvas>
+
+                <p class="chart-note">
+                    Distribution based on current stock values.
+                </p>
+
+            </div>
+
+        </section>
+
+        <div id="toast" class="toast"></div>
+
+        <footer>
+            <p>
+                StockVault · Educational Portfolio Tracker
+                <br>
+                Market data provided by Twelve Data.
+                Prices may be delayed or unavailable.
+                This application does not execute real trades.
+            </p>
+        </footer>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
